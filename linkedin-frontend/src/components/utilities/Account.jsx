@@ -9,8 +9,8 @@ const Account = ({ /*image,*/ name, description }) => {
                 <img src={image} alt="" className="eclipse" />
             </div>
             <div className="profile-info-container flex column">
-                <p className="title">{"name"}</p>
-                <p className="text">{"description"}</p>
+                <p className="title">{name}</p>
+                <p className="text">{description}</p>
             </div>
         </div>
     );
