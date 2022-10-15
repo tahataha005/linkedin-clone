@@ -1,9 +1,9 @@
 import React from "react";
-import "../../styles/utilities.css";
+import "../../styles/post.css";
 import image from "../../assets/signup-hero.svg";
 import Account from "./Account";
 
-const Post = ({ title, text }) => {
+const Post = ({ text }) => {
     return (
         <div className="post flex column round-edges border white-bg">
             <Account />
