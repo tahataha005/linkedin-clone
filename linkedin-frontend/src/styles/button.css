@@ -1,0 +1,9 @@
+.regular-btn {
+    padding: 30px 20px;
+    font-size: 15px;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.regular-btn:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
