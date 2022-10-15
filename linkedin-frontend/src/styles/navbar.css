@@ -3,3 +3,16 @@
     align-items: center;
     justify-content: center;
 }
+
+.search-div {
+    width: 40%;
+    height: 100%;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.logo {
+    width: 7vh;
+    height: 7vh;
+    padding: 1vh;
+}
