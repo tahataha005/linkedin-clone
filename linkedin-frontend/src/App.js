@@ -1,8 +1,14 @@
 import "./styles/App.css";
-import Landing from "./components/pages/Landing";
+import Home from "./components/pages/Home";
+import NavBar from "./components/utilities/NavBar";
 
 const App = () => {
-    return <Landing />;
+    return (
+        <>
+            <NavBar />
+            <Home />
+        </>
+    );
 };
 
 export default App;
