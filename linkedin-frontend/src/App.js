@@ -1,7 +1,8 @@
 import "./styles/App.css";
+import Landing from "./components/pages/Landing";
 
 const App = () => {
-    return <div className="App"></div>;
+    return <Landing />;
 };
 
 export default App;
