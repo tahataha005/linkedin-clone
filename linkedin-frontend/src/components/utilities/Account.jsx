@@ -1,4 +1,5 @@
 import React from "react";
+import "../../styles/account.css";
 import image from "../../assets/signup-hero.svg";
 
 const Account = ({ /*image,*/ name, description }) => {
