@@ -11,3 +11,10 @@
     border-left: 0;
     border-right: 0;
 }
+
+.post-buttons {
+    width: 100%;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: center;
+}
