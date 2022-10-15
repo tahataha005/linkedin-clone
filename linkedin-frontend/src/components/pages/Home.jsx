@@ -2,7 +2,7 @@ import React from "react";
 import Post from "../utilities/Post";
 import Section from "../utilities/Section";
 
-const Landing = () => {
+const Home = () => {
     return (
         <div className="page-container flex">
             <Section width={"width-40"}>
@@ -12,4 +12,4 @@ const Landing = () => {
     );
 };
 
-export default Landing;
+export default Home;
