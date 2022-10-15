@@ -7,3 +7,9 @@
 .regular-btn:hover {
     background-color: rgba(0, 0, 0, 0.1);
 }
+
+.nav-btn {
+    height: 6vh;
+    font-size: 15px;
+    background-color: rgba(0, 0, 0, 0);
+}
