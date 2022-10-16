@@ -14,6 +14,11 @@ const Home = () => {
             text: "some random text",
             user: { name: "mohammad", description: "physio" },
         },
+        {
+            id: 3,
+            text: "this is a post",
+            user: { name: "khaled", description: "Technical Assistant" },
+        },
     ];
 
     return (
