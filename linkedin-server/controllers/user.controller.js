@@ -6,4 +6,13 @@ const getInfo = async (req, res) => {
     res.json({ user });
 };
 
-module.exports = { getInfo };
+const editInfo = async (req, res) => {
+    const { id, ...data } = req.body;
+    User.findByIdAndUpdate(id, data)
+        .then(user => {
+            res.json({ user });
+        })
+        .catch(err => res.status(404).json({ message: err.message }));
+};
+
+module.exports = { getInfo, editInfo };
