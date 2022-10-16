@@ -5,14 +5,9 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    username: {
-        type: String,
-        required: "username is required",
-        unique: true,
-        trim: true,
-    },
     email: {
         type: String,
+        required: "email is required",
         unique: true,
         trim: true,
     },
@@ -21,6 +16,10 @@ const userSchema = new mongoose.Schema({
         required: "password is required",
         unique: true,
         trim: true,
+    },
+    user_type: {
+        type: String,
+        required: "user_type is required",
     },
     location: {
         type: String,
