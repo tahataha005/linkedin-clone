@@ -44,6 +44,13 @@ const NavBar = () => {
                     window.location = "/profile";
                 }}
             />
+            <Button
+                type={"nav-btn"}
+                text={"Jobs"}
+                onClick={() => {
+                    window.location = "/jobs";
+                }}
+            />
         </nav>
     );
 };
