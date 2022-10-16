@@ -1,7 +1,8 @@
 const express = require("express");
-const app = express();
-
 require("dotenv").config();
+require("./config/db.config.js");
+
+const app = express();
 
 app.listen(process.env.PORT, err => {
     if (err) {
