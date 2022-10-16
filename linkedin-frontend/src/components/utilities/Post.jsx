@@ -7,7 +7,11 @@ import Button from "./Button";
 const Post = ({ text, user }) => {
     return (
         <div className="post flex column round-edges border white-bg">
-            <Account name={user.name} description={user.description} />
+            <Account
+                name={user.name}
+                description={user.description}
+                profile_pic={"profile-img-container"}
+            />
             <p className="text">{text}</p>
 
             <div className="image-container border">
