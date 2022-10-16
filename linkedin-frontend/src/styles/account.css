@@ -15,3 +15,12 @@
 .account-border {
     border-bottom: 1px solid rgb(150, 150, 150);
 }
+
+.big-pic {
+    width: 20vh;
+    height: 20vh;
+}
+
+.size-30 {
+    font-size: 30px;
+}

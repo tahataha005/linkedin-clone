@@ -118,3 +118,12 @@ td {
 .section {
     margin: 10px;
 }
+
+.big-pic {
+    width: 10vh;
+    height: 10vh;
+}
+
+.size-30 {
+    font-size: 30px;
+}
