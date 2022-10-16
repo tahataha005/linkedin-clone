@@ -2,8 +2,9 @@ const { Router } = require("express");
 
 const router = new Router();
 
-const { getInfo } = require("../controllers/user.controller.js");
+const { getInfo, editInfo } = require("../controllers/user.controller.js");
 
-router.get("/user_info/:id", getInfo);
+router.get("/:id", getInfo);
+router.put("/", editInfo);
 
 module.exports = router;
