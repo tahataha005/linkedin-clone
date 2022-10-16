@@ -14,7 +14,6 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: "password is required",
-        unique: true,
         trim: true,
     },
     user_type: {
@@ -24,7 +23,7 @@ const userSchema = new mongoose.Schema({
     location: {
         type: String,
     },
-    feild: {
+    field: {
         type: String,
     },
 });
