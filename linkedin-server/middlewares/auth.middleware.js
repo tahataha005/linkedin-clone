@@ -11,7 +11,7 @@ const authMiddleware = async (req, res, next) => {
     try {
         const decoded = jwt.verify(token, process.env.SECRET_KEY);
         const user = await User.findOne({ email: decoded.email });
-        res.user = user;
+        req.user = user;
         next();
     } catch (err) {
         return res.status(401).json({ message: err.message });
