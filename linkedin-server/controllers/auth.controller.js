@@ -1,8 +1,26 @@
 const User = require("../models/user.model.js");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
-const login = (req, res) => {
-    res.send("login");
+const login = async (req, res) => {
+    const { email, password } = req.body;
+    const user = await User.findOne({ email });
+
+    if (!user) {
+        return res.status(404).send("Invalid credentials");
+    }
+
+    const passMatch = bcrypt.compare(password, user.password);
+
+    if (!passMatch) {
+        return res.status(404).send("Invalid credentials");
+    }
+
+    const token = jwt.sign(
+        { name: user.name, email: user.email },
+        process.env.SECRET_KEY
+    );
+    res.json({ user, token });
 };
 
 const signup = async (req, res) => {
