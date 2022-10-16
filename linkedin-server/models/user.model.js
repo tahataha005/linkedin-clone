@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const UserType = require("./user.type.model.js");
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -17,8 +18,7 @@ const userSchema = new mongoose.Schema({
         trim: true,
     },
     user_type: {
-        type: String,
-        required: "user_type is required",
+        type: { type: mongoose.Types.ObjectId, ref: UserType },
     },
     location: {
         type: String,
