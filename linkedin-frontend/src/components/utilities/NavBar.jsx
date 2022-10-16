@@ -16,10 +16,34 @@ const NavBar = () => {
                     placeholder={"Search..."}
                 />
             </div>
-            <Button type={"nav-btn"} text={"Home"} />
-            <Button type={"nav-btn"} text={"Network"} />
-            <Button type={"nav-btn"} text={"Notifications"} />
-            <Button type={"nav-btn"} text={"Profile"} />
+            <Button
+                type={"nav-btn"}
+                text={"Home"}
+                onClick={() => {
+                    window.location = "/";
+                }}
+            />
+            <Button
+                type={"nav-btn"}
+                text={"Network"}
+                onClick={() => {
+                    window.location = "/network";
+                }}
+            />
+            <Button
+                type={"nav-btn"}
+                text={"Notifications"}
+                onClick={() => {
+                    window.location = "/notifications";
+                }}
+            />
+            <Button
+                type={"nav-btn"}
+                text={"Profile"}
+                onClick={() => {
+                    window.location = "/profile";
+                }}
+            />
         </nav>
     );
 };
