@@ -15,13 +15,17 @@ const Network = () => {
     ];
     return (
         <div className="page-container flex">
-            <Section width={"width-60"} styling={"section white-bg"}>
+            <Section
+                width={"width-60"}
+                styling={"section round-edges border white-bg"}
+            >
                 {followed.map(company => {
                     return (
                         <Account
                             name={company.name}
                             description={company.description}
-                            border={"account-border"}
+                            styling={"account-border"}
+                            profile_pic={"profile-img-container"}
                         />
                     );
                 })}
