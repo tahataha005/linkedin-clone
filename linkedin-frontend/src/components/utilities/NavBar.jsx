@@ -39,16 +39,16 @@ const NavBar = () => {
             />
             <Button
                 type={"nav-btn"}
-                text={"Profile"}
+                text={"Jobs"}
                 onClick={() => {
-                    window.location = "/profile";
+                    window.location = "/jobs";
                 }}
             />
             <Button
                 type={"nav-btn"}
-                text={"Jobs"}
+                text={"Profile"}
                 onClick={() => {
-                    window.location = "/jobs";
+                    window.location = "/profile";
                 }}
             />
         </nav>
