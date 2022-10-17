@@ -85,7 +85,11 @@ td {
 }
 
 .light-txt {
-    color: rgb(79, 79, 79);
+    color: rgb(150, 150, 150);
+}
+
+.blue-txt {
+    color: rgb(0, 96, 151);
 }
 
 .page-container {
