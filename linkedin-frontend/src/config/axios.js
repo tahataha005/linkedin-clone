@@ -1,21 +1,20 @@
 import axios from "axios";
 
-const getAPI = async (url, token) => {
-    axios.defaults.headers.auth = `Bearer + ${token}`;
-    axios.defaults.baseURL = "localhost:8000";
+const token = localStorage.getItem("token");
+axios.defaults.headers.authorization = "Bearer " + token;
+axios.defaults.baseURL = "http://localhost:8000";
 
-    const response = await axios.get(url);
+const sendRequest = async ({ method = "GET", data = null, route = null }) => {
+    if (!route) throw Error("URL Required");
+    if (method === "GET") {
+        const response = await axios.get(route);
+        return response.data;
+    }
+    const response = await axios.request({
+        method: method,
+        data: data,
+    });
     return response;
 };
 
-const postAPI = async (url, token, body) => {
-    axios.defaults.headers.auth = `Bearer + ${token}`;
-    axios.defaults.baseURL = "localhost:8000";
-
-    const response = await axios.post(url, body);
-    return response;
-};
-
-const axios_functions = { getAPI, postAPI };
-
-export default axios_functions;
+export default sendRequest;
