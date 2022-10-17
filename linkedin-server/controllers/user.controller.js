@@ -73,4 +73,13 @@ const addPost = async (req, res) => {
     }
 };
 
-module.exports = { addJob, getInfo, editInfo, apply, addPost };
+const getPosts = async (req, res) => {
+    try {
+        const posts = await Post.find();
+        res.json(posts);
+    } catch (err) {
+        res.status(400).json({ message: err.message });
+    }
+};
+
+module.exports = { addJob, getInfo, editInfo, apply, addPost, getPosts };
