@@ -9,8 +9,7 @@ const jobSchema = mongoose.Schema({
         type: String,
     },
     work: {
-        type: String,
-        enum: ["Online", "OnSight"],
+        type: Array,
     },
     company_id: {
         type: mongoose.Types.ObjectId,
