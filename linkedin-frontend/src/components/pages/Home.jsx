@@ -17,44 +17,30 @@ const Home = () => {
 
     const getPosts = async () => {
         const posts = await sendRequest({
-            route: "/post",
+            route: "/user/post",
         });
+        setPosts(posts);
     };
 
     useEffect(() => {
         getUser();
+        getPosts();
     }, []);
 
-    useEffect(() => {
-        console.log(user);
-    }, [user]);
+    const [posts, setPosts] = useState();
 
-    const [posts, setPosts] = useState([
-        {
-            id: 1,
-            text: "some random text",
-            user: { name: "taha", description: "educator" },
-        },
-        {
-            id: 2,
-            text: "some random text",
-            user: { name: "mohammad", description: "physio" },
-        },
-        {
-            id: 3,
-            text: "this is a post",
-            user: { name: "khaled", description: "Technical Assistant" },
-        },
-    ]);
+    useEffect(() => {
+        console.log(posts);
+    }, [posts]);
 
     return (
         <div className="page-container flex">
             <Section width={"width-40"}>
-                {posts.map(post => {
+                {posts?.map(post => {
                     return (
                         <Post
                             key={post.id}
-                            user={post.user}
+                            user={post.user_id}
                             text={post.content}
                         />
                     );
