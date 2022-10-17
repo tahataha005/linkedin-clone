@@ -16,6 +16,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: "password is required",
         trim: true,
+        select: false,
     },
     user_type: {
         type: mongoose.Types.ObjectId,
