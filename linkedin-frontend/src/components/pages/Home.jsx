@@ -1,16 +1,35 @@
 import React from "react";
 import Post from "../utilities/Post";
 import Section from "../utilities/Section";
-import axios_functions from "../../config/axios";
+import { useState } from "react";
+import { useEffect } from "react";
+import sendRequest from "../../config/axios";
 
-const Home = async () => {
-    const posts = await axios_functions.getAPI(
-        "/user/634ced20f805eea4fea92bd3"
-    );
+const Home = () => {
+    const [user, setUser] = useState();
 
-    console.log(posts);
+    const getUser = async () => {
+        const user = await sendRequest({
+            route: "/user/634ced20f805eea4fea92bd3",
+        });
+        setUser(user);
+    };
 
-    const feed = [
+    const getPosts = async () => {
+        const posts = await sendRequest({
+            route: "/post",
+        });
+    };
+
+    useEffect(() => {
+        getUser();
+    }, []);
+
+    useEffect(() => {
+        console.log(user);
+    }, [user]);
+
+    const [posts, setPosts] = useState([
         {
             id: 1,
             text: "some random text",
@@ -26,14 +45,18 @@ const Home = async () => {
             text: "this is a post",
             user: { name: "khaled", description: "Technical Assistant" },
         },
-    ];
+    ]);
 
     return (
         <div className="page-container flex">
             <Section width={"width-40"}>
-                {feed.map(post => {
+                {posts.map(post => {
                     return (
-                        <Post key={post.id} user={post.user} text={post.text} />
+                        <Post
+                            key={post.id}
+                            user={post.user}
+                            text={post.content}
+                        />
                     );
                 })}
             </Section>
