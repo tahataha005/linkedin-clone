@@ -39,7 +39,7 @@ const Jobs = () => {
     return (
         <div className="page-container flex">
             <Section
-                width={"width-60"}
+                width={"width-40"}
                 styling={"section round-edges border white-bg"}
             >
                 {jobs.map(job => {
