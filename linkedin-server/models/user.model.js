@@ -18,7 +18,8 @@ const userSchema = new mongoose.Schema({
         trim: true,
     },
     user_type: {
-        type: { type: mongoose.Types.ObjectId, ref: UserType },
+        type: mongoose.Types.ObjectId,
+        ref: "UserType",
     },
     location: {
         type: String,
