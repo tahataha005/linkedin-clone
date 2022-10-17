@@ -1,6 +1,7 @@
 const User = require("../models/user.model.js");
 const Job = require("../models/job.model.js");
 const Apply = require("../models/apply.model.js");
+const Post = require("../models/post.model.js");
 
 const getInfo = async (req, res) => {
     const { id } = req.params;
@@ -51,4 +52,20 @@ const apply = async (req, res) => {
     }
 };
 
-module.exports = { addJob, getInfo, editInfo, apply };
+const addPost = async (req, res) => {
+    const { content, user_id } = req.body;
+
+    try {
+        const post = new Post();
+
+        post.content = content;
+        post.user_id = user_id;
+
+        await post.save();
+        res.json(post);
+    } catch (err) {
+        res.status(400).json({ message: err.message });
+    }
+};
+
+module.exports = { addJob, getInfo, editInfo, apply, addPost };
