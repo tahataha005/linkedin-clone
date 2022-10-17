@@ -1,0 +1,16 @@
+.job-container {
+    width: 95%;
+    margin: 0 5px;
+    border-bottom: 1px solid rgb(150, 150, 150);
+}
+
+.profile-img-container {
+    width: 10vh;
+    height: 10vh;
+}
+
+.job-info {
+    height: 15vh;
+    justify-content: space-around;
+    padding: 10px;
+}
