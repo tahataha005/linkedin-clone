@@ -17,7 +17,7 @@ const login = async (req, res) => {
     }
 
     const token = jwt.sign(
-        { name: user.name, email: user.email },
+        { id: user.id, name: user.name, email: user.email },
         process.env.SECRET_KEY
     );
     res.json({ user, token });
@@ -36,7 +36,11 @@ const signup = async (req, res) => {
         user.field = field;
 
         await user.save();
-        res.json({ message: "success", id: user.id });
+        const token = jwt.sign(
+            { id: user.id, name: user.name, email: user.email },
+            process.env.SECRET_KEY
+        );
+        res.json({ id: user.id, token });
     } catch (err) {
         res.status(400).send({ message: err.message });
     }
