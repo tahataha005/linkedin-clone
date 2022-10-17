@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const UserType = require("./user.type.model.js");
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -15,10 +16,11 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: "password is required",
         trim: true,
+        select: false,
     },
     user_type: {
-        type: String,
-        required: "user_type is required",
+        type: mongoose.Types.ObjectId,
+        ref: "UserType",
     },
     location: {
         type: String,
