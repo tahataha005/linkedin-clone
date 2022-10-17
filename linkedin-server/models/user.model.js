@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema({
         select: false,
     },
     user_type: {
-        type: mongoose.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: "UserType",
     },
     location: {

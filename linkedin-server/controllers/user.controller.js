@@ -2,11 +2,16 @@ const User = require("../models/user.model.js");
 const Job = require("../models/job.model.js");
 const Apply = require("../models/apply.model.js");
 const Post = require("../models/post.model.js");
+const { default: mongoose } = require("mongoose");
 
 const getInfo = async (req, res) => {
     const { id } = req.params;
-    const user = await User.findById(id);
-    res.json({ user });
+    try {
+        const user = await User.findById(id);
+        res.json({ user });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
 };
 
 const editInfo = async (req, res) => {

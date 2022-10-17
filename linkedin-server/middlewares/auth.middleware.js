@@ -2,7 +2,7 @@ const User = require("../models/user.model.js");
 const jwt = require("jsonwebtoken");
 
 const authMiddleware = async (req, res, next) => {
-    const token = req.headers.authorization.split(" ")[1];
+    const token = req.headers.authorization?.split(" ")[1];
 
     if (!token) {
         return res.status(401).json({ message: "Unauthorized" });
@@ -10,7 +10,10 @@ const authMiddleware = async (req, res, next) => {
 
     try {
         const decoded = jwt.verify(token, process.env.SECRET_KEY);
-        const user = await User.findOne({ email: decoded.email });
+        const user = await User.findOne({ email: decoded.email }).populate(
+            "user_type"
+        );
+        console.log({ user });
         req.user = user;
         next();
     } catch (err) {

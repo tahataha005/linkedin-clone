@@ -1,8 +1,15 @@
 import React from "react";
 import Post from "../utilities/Post";
 import Section from "../utilities/Section";
+import axios_functions from "../../config/axios";
 
-const Home = () => {
+const Home = async () => {
+    const posts = await axios_functions.getAPI(
+        "/user/634ced20f805eea4fea92bd3"
+    );
+
+    console.log(posts);
+
     const feed = [
         {
             id: 1,
