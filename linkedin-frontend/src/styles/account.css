@@ -1,0 +1,26 @@
+.account-container {
+    width: 100%;
+    padding: 10px;
+}
+
+.profile-img-container {
+    width: 10vh;
+    height: 10vh;
+}
+
+.profile-info-container {
+    margin: 10px;
+}
+
+.account-border {
+    border-bottom: 1px solid rgb(212, 211, 211);
+}
+
+.big-pic {
+    width: 20vh;
+    height: 20vh;
+}
+
+.size-30 {
+    font-size: 30px;
+}
