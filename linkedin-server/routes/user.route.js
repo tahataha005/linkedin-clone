@@ -5,7 +5,6 @@ const router = new Router();
 const {
     getInfo,
     editInfo,
-    addJob,
     apply,
     addPost,
     getPosts,
@@ -19,7 +18,6 @@ const userMiddleware = require("../middlewares/user.middleware.js");
 router.get("/post", authMiddleware, getPosts);
 router.get("/:id", authMiddleware, getInfo);
 router.put("/", authMiddleware, editInfo);
-router.post("/job", authMiddleware, companyMiddleware, addJob);
 router.get("/job", authMiddleware, companyMiddleware, getJobs);
 router.post("/apply", authMiddleware, userMiddleware, apply);
 router.post("/post", authMiddleware, addPost);
