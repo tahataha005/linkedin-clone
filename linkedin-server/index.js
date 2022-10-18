@@ -15,6 +15,9 @@ app.use("/auth", authRoutes);
 const userRoutes = require("./routes/user.route.js");
 app.use("/user", userRoutes);
 
+const companyRoutes = require("./routes/company.route.js");
+app.use("/company", companyRoutes);
+
 app.listen(process.env.PORT, err => {
     if (err) {
         console.log(err);
