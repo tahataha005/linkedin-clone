@@ -41,6 +41,15 @@ const addJob = async (req, res) => {
     }
 };
 
+const getJobs = async (req, res) => {
+    try {
+        const jobs = await Job.find().populate("company_id");
+        res.json(jobs);
+    } catch (err) {
+        res.status(400).json({ message: err.message });
+    }
+};
+
 const apply = async (req, res) => {
     const { user_id, job_id } = req.body;
 
@@ -75,11 +84,19 @@ const addPost = async (req, res) => {
 
 const getPosts = async (req, res) => {
     try {
-        const posts = await Post.find();
+        const posts = await Post.find().populate("user_id");
         res.json(posts);
     } catch (err) {
         res.status(400).json({ message: err.message });
     }
 };
 
-module.exports = { addJob, getInfo, editInfo, apply, addPost, getPosts };
+module.exports = {
+    addJob,
+    getInfo,
+    editInfo,
+    apply,
+    addPost,
+    getPosts,
+    getJobs,
+};
