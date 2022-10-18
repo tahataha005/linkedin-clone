@@ -23,24 +23,6 @@ const editInfo = async (req, res) => {
         .catch(err => res.status(404).json({ message: err.message }));
 };
 
-const addJob = async (req, res) => {
-    const { company_id, name, description, work } = req.body;
-
-    try {
-        const job = new Job();
-
-        job.name = name;
-        job.description = description;
-        job.work = work;
-        job.company_id = company_id;
-
-        await job.save();
-        res.json(job);
-    } catch (err) {
-        res.status(400).json({ message: err.message });
-    }
-};
-
 const getJobs = async (req, res) => {
     try {
         const jobs = await Job.find().populate("company_id");
@@ -92,7 +74,6 @@ const getPosts = async (req, res) => {
 };
 
 module.exports = {
-    addJob,
     getInfo,
     editInfo,
     apply,
