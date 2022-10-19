@@ -1,20 +1,10 @@
 import React from "react";
 import Post from "../utilities/Post";
 import Section from "../utilities/Section";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import sendRequest from "../../config/axios";
 
 const Home = () => {
-    const [user, setUser] = useState();
-
-    const getUser = async () => {
-        const user = await sendRequest({
-            route: "/user/634ced20f805eea4fea92bd3",
-        });
-        setUser(user);
-    };
-
     const getPosts = async () => {
         const posts = await sendRequest({
             route: "/user/post",
@@ -23,7 +13,6 @@ const Home = () => {
     };
 
     useEffect(() => {
-        getUser();
         getPosts();
     }, []);
 
