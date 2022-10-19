@@ -9,19 +9,16 @@ import { useState } from "react";
 const Auth = () => {
     const [signup, setSignup] = useState(false);
     return (
-        <div className="page-container flex">
-            {signup && (
-                <div className="signup-container white-bg flex row wrap">
-                    <Section
-                        width={"width-50"}
-                        styling={"white-bg min-width-500"}
-                    >
+        <div className="page-container white-bg flex">
+            {signup ? (
+                <div className="signup-container flex row wrap">
+                    <Section width={"width-50"} styling={"min-width-500"}>
                         <div className="content flex">
-                            <div className="auth-block">
+                            <div className="signup-block">
                                 <p className="landing-title">
                                     Join the biggest professional community
                                 </p>
-                                <div className="auth-inputs-container flex column">
+                                <div className="signup-inputs-container flex column">
                                     <Input
                                         type={"auth-input border"}
                                         placeholder={"Email"}
@@ -30,18 +27,19 @@ const Auth = () => {
                                         type={"auth-input border"}
                                         placeholder={"Password"}
                                     />
+                                    <Button
+                                        type={"auth-button dark-bg white-txt"}
+                                        text={"SIGN IN"}
+                                    />
                                 </div>
-                                <Button
-                                    type={"auth-button dark-bg white-txt"}
-                                    text={"SIGN IN"}
-                                />
+
                                 <div className="auth-switch-container flex row">
                                     <p>Already have an account?</p>
                                     <Button
                                         type={
                                             "auth-switch-button blue-txt white-bg"
                                         }
-                                        text={"Sign Up"}
+                                        text={"Sign In"}
                                     />
                                 </div>
                             </div>
@@ -57,6 +55,38 @@ const Auth = () => {
                         </div>
                     </Section>
                 </div>
+            ) : (
+                <Section width={"width-25"}>
+                    <div className="content flex">
+                        <div className="login-block border round-edges flex column">
+                            <p className="auth-title">Sign In</p>
+                            <p>Stay updated on your professional world</p>
+                            <div className="login-inputs-container flex column">
+                                <Input
+                                    type={"auth-input border"}
+                                    placeholder={"Email"}
+                                />
+                                <Input
+                                    type={"auth-input border"}
+                                    placeholder={"Password"}
+                                />
+                            </div>
+                            <Button
+                                type={"auth-button dark-bg white-txt"}
+                                text={"Sign In"}
+                            />
+                            <div className="auth-switch-container flex row">
+                                <p>Don't have an account?</p>
+                                <Button
+                                    type={
+                                        "auth-switch-button blue-txt white-bg"
+                                    }
+                                    text={"Sign Up"}
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </Section>
             )}
         </div>
     );
