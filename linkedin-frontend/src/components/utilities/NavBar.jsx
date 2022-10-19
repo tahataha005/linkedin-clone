@@ -23,7 +23,7 @@ const NavBar = () => {
                 type={"nav-btn"}
                 text={"Home"}
                 onClick={() => {
-                    navigate("/");
+                    navigate("/home");
                 }}
             />
             <Button
