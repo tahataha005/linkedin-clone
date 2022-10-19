@@ -14,7 +14,7 @@ const sendRequest = async ({ method = "GET", data = null, route = null }) => {
         method: method,
         data: data,
     });
-    return response;
+    return response.data;
 };
 
 export default sendRequest;
