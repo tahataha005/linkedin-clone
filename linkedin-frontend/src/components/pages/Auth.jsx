@@ -5,9 +5,26 @@ import Section from "../utilities/Section";
 import Button from "../utilities/Button";
 import image from "../../assets/signup-hero.svg";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import sendRequest from "../../config/axios.js";
 
 const Auth = () => {
     const [signup, setSignup] = useState(true);
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
+    const [error, setError] = useState();
+    const navigate = useNavigate();
+
+    const login = async (email, password) => {
+        const data = { email: email, password: password };
+        const response = await sendRequest({
+            method: "post",
+            data: data,
+            route: "/auth/login",
+        });
+        return response;
+    };
+
     return (
         <div className="page-container white-bg flex">
             {signup ? (
@@ -26,7 +43,9 @@ const Auth = () => {
                                     <Input
                                         type={"auth-input border"}
                                         placeholder={"Password"}
+                                        input_type={"password"}
                                     />
+
                                     <Button
                                         type={"auth-button dark-bg white-txt"}
                                         text={"SIGN IN"}
@@ -66,15 +85,42 @@ const Auth = () => {
                                 <Input
                                     type={"auth-input border"}
                                     placeholder={"Email"}
+                                    onChange={e => {
+                                        setEmail(e.target.value);
+                                    }}
                                 />
                                 <Input
                                     type={"auth-input border"}
                                     placeholder={"Password"}
+                                    onChange={e => {
+                                        setPassword(e.target.value);
+                                    }}
+                                    input_type={"password"}
                                 />
+                                <p className="red-text">{error ? error : ""}</p>
                             </div>
                             <Button
                                 type={"auth-button dark-bg white-txt"}
                                 text={"Sign In"}
+                                onClick={async () => {
+                                    try {
+                                        const user = await login(
+                                            email,
+                                            password
+                                        );
+                                        localStorage.clear();
+                                        localStorage.setItem(
+                                            "token",
+                                            user.token
+                                        );
+                                        localStorage.setItem("id", user.id);
+                                        setError();
+                                        navigate("/home");
+                                    } catch (error) {
+                                        console.log(error.response.data);
+                                        setError(error.response.data);
+                                    }
+                                }}
                             />
                             <div className="auth-switch-container flex row">
                                 <p>Don't have an account?</p>
