@@ -1,4 +1,5 @@
 import "./styles/App.css";
+import Auth from "./components/pages/Auth";
 import Home from "./components/pages/Home";
 import Network from "./components/pages/Network";
 import Notifications from "./components/pages/Notifications";
@@ -12,7 +13,8 @@ const App = () => {
         <BrowserRouter>
             <NavBar />
             <Routes>
-                <Route path="/" element={<Home />} />
+                <Route path="/" element={<Auth />} />
+                <Route path="/home" element={<Home />} />
                 <Route path="/network" element={<Network />} />
                 <Route path="/notifications" element={<Notifications />} />
                 <Route path="/profile" element={<Profile />} />

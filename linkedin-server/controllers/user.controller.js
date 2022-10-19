@@ -8,7 +8,7 @@ const getInfo = async (req, res) => {
     const { id } = req.params;
     try {
         const user = await User.findById(id);
-        res.json({ user });
+        res.json(user);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
@@ -18,7 +18,7 @@ const editInfo = async (req, res) => {
     const { id, ...data } = req.body;
     User.findByIdAndUpdate(id, data)
         .then(user => {
-            res.json({ user });
+            res.json(user);
         })
         .catch(err => res.status(404).json({ message: err.message }));
 };
