@@ -7,7 +7,7 @@ import image from "../../assets/signup-hero.svg";
 import { useState } from "react";
 
 const Auth = () => {
-    const [signup, setSignup] = useState(false);
+    const [signup, setSignup] = useState(true);
     return (
         <div className="page-container white-bg flex">
             {signup ? (
@@ -40,6 +40,7 @@ const Auth = () => {
                                             "auth-switch-button blue-txt white-bg"
                                         }
                                         text={"Sign In"}
+                                        onClick={() => setSignup(!signup)}
                                     />
                                 </div>
                             </div>
@@ -82,6 +83,7 @@ const Auth = () => {
                                         "auth-switch-button blue-txt white-bg"
                                     }
                                     text={"Sign Up"}
+                                    onClick={() => setSignup(!signup)}
                                 />
                             </div>
                         </div>
