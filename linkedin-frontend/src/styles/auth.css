@@ -10,7 +10,7 @@
     justify-content: flex-end;
 }
 
-.auth-block {
+.signup-block {
     width: 80%;
     height: 80%;
 }
@@ -22,9 +22,9 @@
     color: rgb(123, 76, 25);
 }
 
-.auth-inputs-container {
+.signup-inputs-container {
     width: 70%;
-    height: 25%;
+    height: 40%;
     align-items: center;
     justify-content: space-around;
     margin: 10px 0;
@@ -32,7 +32,7 @@
 
 .auth-switch-container {
     width: 100%;
-    height: 5%;
+    height: 3.5vh;
     margin: 10px 0;
 }
 
@@ -44,4 +44,32 @@
 .hero-image {
     width: 100%;
     height: 99%;
+}
+
+.login-container {
+    width: 30%;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-title {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.login-inputs-container {
+    width: 100%;
+    height: 45%;
+    align-items: center;
+    justify-content: space-around;
+    margin: 10px 0;
+}
+
+.login-block {
+    width: 100%;
+    height: 60%;
+    padding: 20px;
+    box-shadow: 10px;
+    justify-content: space-between;
 }
