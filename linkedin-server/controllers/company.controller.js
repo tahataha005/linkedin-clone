@@ -22,4 +22,14 @@ const addJob = async (req, res) => {
     }
 };
 
-module.exports = { addJob };
+const getJobs = async (req, res) => {
+    try {
+        const { company_id } = req.params;
+        const company_jobs = await Job.find({ company_id });
+        res.json(company_jobs);
+    } catch (error) {
+        res.status(400).json({ message: err.message });
+    }
+};
+
+module.exports = { addJob, getJobs };
