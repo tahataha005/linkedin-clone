@@ -9,7 +9,7 @@ const Profile = () => {
 
     const getUser = async () => {
         const user = await sendRequest({
-            route: "/user/634ced20f805eea4fea92bd3",
+            route: `/user/${localStorage.getItem("id")}`,
         });
         setUser(user);
     };
