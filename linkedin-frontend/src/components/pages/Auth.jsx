@@ -113,7 +113,10 @@ const Auth = () => {
                                             "token",
                                             user.token
                                         );
-                                        localStorage.setItem("id", user.id);
+                                        localStorage.setItem(
+                                            "id",
+                                            user.user._id
+                                        );
                                         setError();
                                         navigate("/home");
                                     } catch (error) {
