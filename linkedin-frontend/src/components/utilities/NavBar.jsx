@@ -3,8 +3,11 @@ import Button from "./Button";
 import "../../styles/navbar.css";
 import Input from "./Input";
 import logo from "../../assets/LinkedIn_logo.png";
+import { useNavigate } from "react-router-dom";
 
 const NavBar = () => {
+    const navigate = useNavigate();
+
     return (
         <nav className="navbar white-bg flex">
             <div className="search-div flex">
@@ -20,35 +23,35 @@ const NavBar = () => {
                 type={"nav-btn"}
                 text={"Home"}
                 onClick={() => {
-                    window.location = "/";
+                    navigate("/home");
                 }}
             />
             <Button
                 type={"nav-btn"}
                 text={"Network"}
                 onClick={() => {
-                    window.location = "/network";
+                    navigate("/network");
                 }}
             />
             <Button
                 type={"nav-btn"}
                 text={"Notifications"}
                 onClick={() => {
-                    window.location = "/notifications";
+                    navigate("/notifications");
                 }}
             />
             <Button
                 type={"nav-btn"}
                 text={"Jobs"}
                 onClick={() => {
-                    window.location = "/jobs";
+                    navigate("/jobs");
                 }}
             />
             <Button
                 type={"nav-btn"}
                 text={"Profile"}
                 onClick={() => {
-                    window.location = "/profile";
+                    navigate("/profile");
                 }}
             />
         </nav>
