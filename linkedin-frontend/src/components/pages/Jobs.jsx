@@ -1,54 +1,40 @@
 import React from "react";
 import Job from "../utilities/Job.jsx";
 import Section from "../utilities/Section.jsx";
+import sendRequest from "../../config/axios.js";
+import { useEffect, useState } from "react";
 const Jobs = () => {
-    const jobs = [
-        {
-            id: 1,
-            job: "software-engineering",
-            company: "SE Factory",
-            location: "Lebanon",
-            work: "On Sight",
-            applicants: 3,
-        },
-        {
-            id: 2,
-            job: "Technical Assistant",
-            company: "SE Factory",
-            location: "Lebanon",
-            work: "On Sight/Online",
-            applicants: 42,
-        },
-        {
-            id: 3,
-            job: "Communication Manager",
-            company: "Ghandour",
-            location: "Lebanon",
-            work: "Online",
-            applicants: 4,
-        },
-        {
-            id: 4,
-            job: "Human Resurces",
-            company: "AUL",
-            location: "Turkey",
-            work: "On Sight",
-            applicants: 12,
-        },
-    ];
+    const [jobs, setJobs] = useState();
+
+    useEffect(() => {
+        const getJobs = async () => {
+            const response = await sendRequest({
+                route: `/user/job`,
+            });
+            setJobs(response);
+        };
+
+        getJobs();
+    }, []);
+
+    useEffect(() => {
+        console.log(jobs);
+    }, [jobs]);
+
     return (
         <div className="page-container flex">
             <Section
                 width={"width-40"}
                 styling={"section round-edges border white-bg"}
             >
-                {jobs.map(job => {
+                {jobs?.map(job => {
                     return (
                         <Job
-                            key={job.id}
-                            job={job.job}
-                            company={job.company}
-                            location={job.location}
+                            key={job._id}
+                            job_id={job._id}
+                            job={job.name}
+                            company={job.company_id.email}
+                            location={job.company_id.location}
                             work={job.work}
                             applicants={job.applicants}
                         />
