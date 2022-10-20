@@ -18,18 +18,15 @@ const Home = () => {
 
     const [posts, setPosts] = useState();
 
-    useEffect(() => {
-        console.log(posts);
-    }, [posts]);
-
     return (
         <div className="page-container flex">
             <Section width={"width-40"}>
                 {posts?.map(post => {
+                    console.log("post ", post);
                     return (
                         <Post
-                            key={post.id}
-                            user={post.user_id}
+                            key={post._id}
+                            user={post.user}
                             text={post.content}
                         />
                     );
