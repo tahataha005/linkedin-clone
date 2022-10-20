@@ -9,7 +9,7 @@ const {
     addPost,
     getPosts,
     getJobs,
-    followCompany,
+    follow,
 } = require("../controllers/user.controller.js");
 
 router.get("/post", getPosts);
