@@ -16,10 +16,10 @@ const {
 router.get("/post", getPosts);
 router.post("/post", addPost);
 router.get("/follow/:id", getFollowing);
-router.get("/:id", getInfo);
 router.put("/", editInfo);
 router.get("/job", getJobs);
 router.post("/apply", apply);
 router.post("/follow", follow);
+router.get("/:id", getInfo);
 
 module.exports = router;
