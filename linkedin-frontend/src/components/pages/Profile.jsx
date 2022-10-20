@@ -4,26 +4,26 @@ import Account from "../utilities/Account";
 import { useState, useEffect } from "react";
 import sendRequest from "../../config/axios";
 
-const Profile = ({ id }) => {
+const Profile = () => {
     const [user, setUser] = useState();
+    const clicked_user_id = localStorage.getItem("clicked_id");
+    const current_user_id = localStorage.getItem("id");
 
     const getUser = async () => {
         const user = await sendRequest({
             route: `/user/${
-                localStorage.getItem("clicked_id")
-                    ? localStorage.getItem("clicked_id")
-                    : localStorage.getItem("id")
+                clicked_user_id ? clicked_user_id : current_user_id
+            }`,
         });
-        setUser(user.user);
+        setUser(user);
     };
 
     useEffect(() => {
         getUser();
     }, []);
 
-    useEffect(() => {
-        console.log(user);
-    }, [user]);
+    localStorage.removeItem("clicked_id");
+
     return (
         <div className="page-container flex">
             <Section
