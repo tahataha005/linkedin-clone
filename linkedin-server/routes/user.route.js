@@ -9,13 +9,15 @@ const {
     addPost,
     getPosts,
     getJobs,
+    followCompany,
 } = require("../controllers/user.controller.js");
 
 router.get("/post", getPosts);
+router.post("/post", addPost);
 router.get("/:id", getInfo);
 router.put("/", editInfo);
 router.get("/job", getJobs);
 router.post("/apply", apply);
-router.post("/post", addPost);
+router.post("/follow", follow);
 
 module.exports = router;
