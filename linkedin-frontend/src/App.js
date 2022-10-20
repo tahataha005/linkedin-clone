@@ -17,7 +17,10 @@ const App = () => {
                 <Route path="/home" element={<Home />} />
                 <Route path="/network" element={<Network />} />
                 <Route path="/notifications" element={<Notifications />} />
-                <Route path="/profile" element={<Profile />} />
+                <Route
+                    path="/profile"
+                    element={<Profile id={localStorage.getItem("id")} />}
+                />
                 <Route path="/jobs" element={<Jobs />} />
             </Routes>
         </BrowserRouter>

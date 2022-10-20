@@ -3,8 +3,11 @@ import "../../styles/post.css";
 import image from "../../assets/signup-hero.svg";
 import Account from "./Account";
 import Button from "./Button";
+import { useNavigate } from "react-router-dom";
 
 const Post = ({ text, user }) => {
+    const navigate = useNavigate();
+    console.log(user);
     return (
         <div className="post flex column round-edges border white-bg">
             <Account
@@ -18,7 +21,14 @@ const Post = ({ text, user }) => {
                 <img src={image} alt={image} className="image" />
             </div>
             <div className="post-buttons flex">
-                <Button type={"regular-btn"} text={"View"} />
+                <Button
+                    type={"regular-btn"}
+                    text={"View Profile"}
+                    onClick={() => {
+                        localStorage.setItem("clicked_id", user._id);
+                        navigate("/profile");
+                    }}
+                />
             </div>
         </div>
     );
