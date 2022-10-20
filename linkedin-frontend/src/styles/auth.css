@@ -1,0 +1,75 @@
+.signup-container {
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    width: 100%;
+    height: 93vh;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.signup-block {
+    width: 80%;
+    height: 80%;
+}
+
+.landing-title {
+    width: 100%;
+    font-size: 60px;
+    font-weight: 300;
+    color: rgb(123, 76, 25);
+}
+
+.signup-inputs-container {
+    width: 70%;
+    height: 40%;
+    align-items: center;
+    justify-content: space-around;
+    margin: 10px 0;
+}
+
+.auth-switch-container {
+    width: 100%;
+    height: 3.5vh;
+    margin: 10px 0;
+}
+
+.hero-container {
+    width: 100%;
+    height: 93vh;
+}
+
+.hero-image {
+    width: 100%;
+    height: 99%;
+}
+
+.login-container {
+    width: 30%;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-title {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.login-inputs-container {
+    width: 100%;
+    height: 45%;
+    align-items: center;
+    justify-content: space-around;
+    margin: 10px 0;
+}
+
+.login-block {
+    width: 100%;
+    height: 60%;
+    padding: 20px;
+    box-shadow: 10px;
+    justify-content: space-between;
+}

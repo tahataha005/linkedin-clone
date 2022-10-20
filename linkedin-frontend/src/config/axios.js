@@ -11,10 +11,11 @@ const sendRequest = async ({ method = "GET", data = null, route = null }) => {
         return response.data;
     }
     const response = await axios.request({
+        url: route,
         method: method,
         data: data,
     });
-    return response;
+    return response.data;
 };
 
 export default sendRequest;
