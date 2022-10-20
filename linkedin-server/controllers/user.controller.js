@@ -2,6 +2,7 @@ const User = require("../models/user.model.js");
 const Job = require("../models/job.model.js");
 const Apply = require("../models/apply.model.js");
 const Post = require("../models/post.model.js");
+const Follow = require("../models/follow.model.js");
 const { default: mongoose } = require("mongoose");
 
 const getInfo = async (req, res) => {
@@ -73,6 +74,22 @@ const getPosts = async (req, res) => {
     }
 };
 
+const follow = async (req, res) => {
+    const { user_id, company_id } = req.body;
+
+    try {
+        const follow = new Follow();
+
+        follow.user_id = user_id;
+        follow.company_id = company_id;
+
+        await follow.save();
+        res.json(follow);
+    } catch (err) {
+        res.status(400).json({ message: err.message });
+    }
+};
+
 module.exports = {
     getInfo,
     editInfo,
@@ -80,4 +97,5 @@ module.exports = {
     addPost,
     getPosts,
     getJobs,
+    followCompany,
 };
