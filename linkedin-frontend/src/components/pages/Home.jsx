@@ -28,7 +28,7 @@ const Home = () => {
                 {posts?.map(post => {
                     return (
                         <Post
-                            key={post.id}
+                            key={post._id}
                             user={post.user_id}
                             text={post.content}
                         />
