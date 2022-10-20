@@ -10,7 +10,7 @@ const login = async (req, res) => {
         return res.status(404).send("Invalid credentials");
     }
 
-    const passMatch = bcrypt.compare(password, user.password);
+    const passMatch = await bcrypt.compare(password, user.password);
 
     if (!passMatch) {
         return res.status(404).send("Invalid credentials");

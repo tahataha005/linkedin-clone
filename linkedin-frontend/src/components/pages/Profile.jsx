@@ -13,7 +13,6 @@ const Profile = ({ id }) => {
                 localStorage.getItem("clicked_id")
                     ? localStorage.getItem("clicked_id")
                     : localStorage.getItem("id")
-            }`,
         });
         setUser(user.user);
     };

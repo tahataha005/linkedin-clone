@@ -96,6 +96,10 @@ td {
     color: white;
 }
 
+.red-text {
+    color: crimson;
+}
+
 .page-container {
     width: 100%;
     align-items: center;

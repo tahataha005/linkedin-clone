@@ -26,7 +26,9 @@ const Home = () => {
                     return (
                         <Post
                             key={post._id}
-                            user={post.user}
+
+                            user={post.user_id}
+
                             text={post.content}
                         />
                     );
