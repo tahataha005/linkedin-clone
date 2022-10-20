@@ -90,6 +90,20 @@ const follow = async (req, res) => {
     }
 };
 
+const getFollowing = async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const following = await Follow.find({ user_id: id }).populate(
+            "company_id"
+        );
+
+        res.json(following);
+    } catch (err) {
+        res.status(400).json({ message: err.message });
+    }
+};
+
 module.exports = {
     getInfo,
     editInfo,
@@ -97,5 +111,6 @@ module.exports = {
     addPost,
     getPosts,
     getJobs,
-    followCompany,
+    follow,
+    getFollowing,
 };
